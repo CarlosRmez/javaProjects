@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio Monte Carlo Simulation</title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Portfolio Monte Carlo Simulation</h1>
+    </header>
+
+    <div class="main-content">
+        <form id="simulationForm">
+            <div class="form-group">
+                <label for="initialCapital">Initial Capital:</label>
+                <input type="number" id="initialCapital" placeholder="Enter initial capital" required>
+            </div>
+
+            <div class="form-group">
+                <label for="stockTicker">Stock Ticker:</label>
+                <select id="stockTicker">
+                    <option value="AAPL">Apple (AAPL)</option>
+                    <option value="MSFT">Microsoft (MSFT)</option>
+                    <option value="GOOG">Google (GOOG)</option>
+                    <option value="AMZN">Amazon (AMZN)</option>
+                    <option value="TSLA">Tesla (TSLA)</option>
+                    <option value="HD">Home Depot (HD)</option>
+                    <option value="META">Meta (META)</option>
+                    <option value="NVDA">Nvidia (NVDA)</option>
+                    <option value="V">Visa (V)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stockWeight">Weight (%):</label>
+                <input type="number" id="stockWeight" placeholder="Enter stock weight" min="0" max="100" required>
+                <button type="button" id="addStockButton">Add Stock</button>
+            </div>
+
+            <div id="stockList">
+                <h3>Selected Stocks:</h3>
+                <ul id="selectedStocks"></ul>
+            </div>
+
+            <div class="form-group">
+                <label for="daysToPredict">Days to Predict:</label>
+                <input type="number" id="daysToPredict" placeholder="Enter days to predict" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numSimulations">Number of Simulations:</label>
+                <input type="number" id="numSimulations" placeholder="Enter number of simulations" required>
+            </div>
+
+            <button type="submit" id="runSimulationButton">Run Simulation</button>
+        </form>
+
+        <div class="results-container">
+            <h2>Simulation Results</h2>
+            <div class="results-row">
+                <div class="result-block">
+                    <h3>Sequential Execution</h3>
+                    <p>Mean Final Value: <span id="sequentialMeanFinalValue">-</span></p>
+                    <p>Standard Deviation: <span id="sequentialStandardDeviation">-</span></p>
+                    <p>Execution Time: <span id="sequentialExecutionTime">-</span> ms</p>
+                </div>
+                <div class="result-block">
+                    <h3>Parallel Execution</h3>
+                    <p>Mean Final Value: <span id="parallelMeanFinalValue">-</span></p>
+                    <p>Standard Deviation: <span id="parallelStandardDeviation">-</span></p>
+                    <p>Execution Time: <span id="parallelExecutionTime">-</span> ms</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Portfolio Simulation. All rights reserved.</p>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
